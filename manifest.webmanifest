@@ -1,0 +1,53 @@
+{
+    "name": "TenRusl Tutorial Linux",
+    "short_name": "TenRusl Linux",
+    "id": "/",
+    "description": "Structured Linux tutorials and documentation for server, virtualization, security, backup, and workstation learning paths.",
+    "lang": "id",
+    "dir": "ltr",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "display_override": ["standalone", "browser"],
+    "orientation": "any",
+    "background_color": "#0d1117",
+    "theme_color": "#0d1117",
+    "categories": ["education", "developer", "productivity", "reference"],
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "/assets/images/icon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Open Viewer",
+            "short_name": "Viewer",
+            "description": "Open the TenRusl Tutorial Linux viewer.",
+            "url": "/",
+            "icons": [
+                {
+                    "src": "/assets/images/icon.svg",
+                    "sizes": "any",
+                    "type": "image/svg+xml"
+                }
+            ]
+        },
+        {
+            "name": "Contact",
+            "short_name": "Contact",
+            "description": "Open the contact page for TenRusl Tutorial Linux.",
+            "url": "/pages/contact.html",
+            "icons": [
+                {
+                    "src": "/assets/images/icon.svg",
+                    "sizes": "any",
+                    "type": "image/svg+xml"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "backup/vps",
+  "sections": {
+    "concepts": [
+      "backup-strategy.md",
+      "restore-first-thinking.md",
+      "retention-strategy.md"
+    ],
+    "howTo": [
+      "create-backup.md",
+      "restore-from-backup.md",
+      "schedule-backups.md",
+      "verify-backups.md"
+    ],
+    "reference": [
+      "backup-layout.md",
+      "restore-checklist.md",
+      "retention-policy.md"
+    ],
+    "tutorials": [
+      "01-introduction.md",
+      "02-prepare-tools.md",
+      "03-create-full-backup.md",
+      "04-upload-offsite.md",
+      "05-restore-on-new-vps.md",
+      "06-verify-restore.md"
+    ]
+  }
+}

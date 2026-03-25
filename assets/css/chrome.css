@@ -1,0 +1,119 @@
+/* =====================================================================
+   TenRusl-Tutorial-Linux — chrome.css
+   Shell global lintas halaman
+   ===================================================================== */
+
+html,
+body {
+    min-height: 100%;
+}
+
+main {
+    display: block;
+}
+
+.container {
+    width: min(100% - 32px, var(--container-lg));
+    margin-inline: auto;
+}
+
+.container-wide {
+    width: min(100% - 32px, var(--container-xl));
+    margin-inline: auto;
+}
+
+.section {
+    padding-block: 24px;
+}
+
+.surface-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.stack > * + * {
+    margin-top: 16px;
+}
+
+.cluster {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.center {
+    display: grid;
+    place-items: center;
+}
+
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 8px;
+    z-index: 90;
+    background: var(--panel);
+    color: var(--heading);
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    left: 8px;
+}
+
+.hr-soft {
+    height: 1px;
+    background: var(--border);
+    border: 0;
+    margin: 0;
+}
+
+.sticky-shell {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+}
+
+@media (max-width: 768px) {
+    .container,
+    .container-wide {
+        width: min(100% - 24px, var(--container-lg));
+    }
+
+    .section {
+        padding-block: 16px;
+    }
+}
+
+@media print {
+    .skip-link {
+        display: none !important;
+    }
+
+    body {
+        background: #ffffff !important;
+        color: #000000 !important;
+    }
+
+    .surface-card {
+        box-shadow: none !important;
+    }
+}

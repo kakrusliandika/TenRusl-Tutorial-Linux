@@ -1,0 +1,249 @@
+/* =====================================================================
+   TenRusl-Tutorial-Linux — header.css
+   Shared header / toolbar utilities
+   ===================================================================== */
+
+:is(.app-header, .site-header, .shell-header) {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: var(--topbar-h);
+    padding: 12px 16px;
+    background: color-mix(in srgb, var(--panel-3) 92%, transparent);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    backdrop-filter: blur(12px) saturate(140%);
+}
+
+:is(.app-header, .site-header, .shell-header) a {
+    color: inherit;
+    text-decoration: none;
+}
+
+:is(.app-header, .site-header, .shell-header) .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    color: var(--heading);
+}
+
+:is(.app-header, .site-header, .shell-header) .brand-mark {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--accent-strong), var(--accent));
+    box-shadow: 0 10px 22px rgba(31, 111, 235, 0.28);
+}
+
+:is(.app-header, .site-header, .shell-header) .brand-copy {
+    min-width: 0;
+    display: grid;
+    gap: 2px;
+}
+
+:is(.app-header, .site-header, .shell-header) .brand-name {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.25;
+    font-weight: 700;
+    color: var(--heading);
+    letter-spacing: 0.01em;
+}
+
+:is(.app-header, .site-header, .shell-header) .brand-tag {
+    margin: 0;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.3;
+}
+
+:is(.app-header, .site-header, .shell-header) .brand-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 8px;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--border);
+    background: var(--surface-soft);
+    color: var(--muted);
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+:is(.app-header, .site-header, .shell-header) .toolbar,
+:is(.app-header, .site-header, .shell-header) .controls,
+:is(.app-header, .site-header, .shell-header) .nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    min-width: 0;
+}
+
+:is(.app-header, .site-header, .shell-header) .nav {
+    position: relative;
+}
+
+:is(.app-header, .site-header, .shell-header) .nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 11px;
+    border-radius: 12px;
+    color: var(--muted);
+    white-space: nowrap;
+    transition: color var(--motion-fast) var(--motion-ease), background-color var(--motion-fast) var(--motion-ease),
+        border-color var(--motion-fast) var(--motion-ease);
+}
+
+:is(.app-header, .site-header, .shell-header) .nav a:hover,
+:is(.app-header, .site-header, .shell-header) .nav a.active {
+    color: var(--heading);
+    background: var(--surface-soft);
+}
+
+.icon-btn {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 38px;
+    min-width: 38px;
+    padding: 0 12px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0)), var(--panel);
+    color: var(--text);
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: border-color var(--motion-fast) var(--motion-ease),
+        background-color var(--motion-fast) var(--motion-ease), color var(--motion-fast) var(--motion-ease),
+        box-shadow var(--motion-fast) var(--motion-ease), opacity var(--motion-fast) var(--motion-ease);
+    white-space: nowrap;
+}
+
+.icon-btn:hover {
+    color: var(--heading);
+    border-color: var(--accent);
+    box-shadow: 0 10px 24px rgba(31, 111, 235, 0.16);
+}
+
+.icon-btn.ghost {
+    background: transparent;
+}
+
+.icon-btn.active,
+.icon-btn[data-active="true"] {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+    box-shadow: 0 0 0 2px var(--accent-ring) inset;
+}
+
+.icon-btn.sm {
+    min-height: 32px;
+    min-width: 32px;
+    padding-inline: 10px;
+    border-radius: 10px;
+}
+
+.icon,
+.icon-btn i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.icon-sun,
+.icon-moon {
+    transition: opacity var(--motion-medium) var(--motion-ease);
+}
+
+.icon-moon {
+    position: absolute;
+    opacity: 0;
+}
+
+:root.light .icon-sun,
+html[data-theme="light"] .icon-sun {
+    opacity: 0;
+}
+
+:root.light .icon-moon,
+html[data-theme="light"] .icon-moon {
+    opacity: 1;
+}
+
+.nav-toggle {
+    display: none;
+}
+
+@media (max-width: 980px) {
+    :is(.app-header, .site-header, .shell-header) {
+        padding-inline: 12px;
+    }
+
+    :is(.app-header, .site-header, .shell-header) .brand-mark {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+    }
+
+    :is(.app-header, .site-header, .shell-header) .brand-tag {
+        display: none;
+    }
+
+    .icon-btn {
+        min-height: 38px;
+        min-width: 38px;
+        padding-inline: 10px;
+    }
+
+    .icon-btn .label {
+        display: none;
+    }
+}
+
+@media (max-width: 860px) {
+    .nav-toggle {
+        display: inline-grid;
+        place-items: center;
+    }
+
+    :is(.app-header, .site-header, .shell-header) .nav.is-collapsible {
+        position: absolute;
+        right: 12px;
+        top: calc(100% + 8px);
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        width: min(320px, calc(100vw - 24px));
+        padding: 8px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--panel-2);
+        box-shadow: var(--shadow-md);
+        backdrop-filter: blur(12px);
+    }
+
+    :is(.app-header, .site-header, .shell-header) .nav.is-collapsible.open {
+        display: flex;
+    }
+
+    :is(.app-header, .site-header, .shell-header) .nav.is-collapsible a {
+        width: 100%;
+    }
+}

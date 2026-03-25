@@ -1,0 +1,35 @@
+{
+  "slug": "server/base-os/debian",
+  "sections": {
+    "concepts": [
+      "debian-baseline.md",
+      "ssh-first.md",
+      "service-minimization.md"
+    ],
+    "howTo": [
+      "configure-firewall.md",
+      "enable-automatic-updates.md",
+      "install-openssh.md",
+      "set-static-ip.md",
+      "mount-extra-disk.md"
+    ],
+    "reference": [
+      "hardware-requirements.md",
+      "package-baseline.md",
+      "port-matrix.md",
+      "service-checklist.md"
+    ],
+    "tutorials": [
+      "01-introduction.md",
+      "02-install-preflight.md",
+      "03-install-core.md",
+      "04-network.md",
+      "05-users-and-ssh.md",
+      "06-storage.md",
+      "07-security.md",
+      "08-services.md",
+      "09-cleanup.md",
+      "10-closeout.md"
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "slug": "security/vm",
+  "sections": {
+    "concepts": [
+      "template-discipline.md",
+      "vm-hardening-baseline.md",
+      "network-isolation-thinking.md"
+    ],
+    "howTo": [
+      "create-golden-template.md",
+      "review-snapshot-policy.md",
+      "rotate-vm-backups.md",
+      "set-up-isolated-network.md"
+    ],
+    "reference": [
+      "backup-checklist.md",
+      "incident-checklist.md",
+      "network-isolation-checklist.md",
+      "vm-hardening-checklist.md"
+    ],
+    "tutorials": [
+      "01-introduction.md",
+      "02-hypervisor-baseline.md",
+      "03-network-isolation.md",
+      "04-template-hygiene.md",
+      "05-snapshot-policy.md",
+      "06-access-control.md",
+      "07-logging.md",
+      "08-backups.md",
+      "09-hardening.md",
+      "10-closeout.md"
+    ]
+  }
+}

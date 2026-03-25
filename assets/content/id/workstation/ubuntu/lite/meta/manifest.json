@@ -1,0 +1,50 @@
+{
+  "slug": "workstation/ubuntu/lite",
+  "sections": {
+    "concepts": [
+      "what-is-lite.md",
+      "minimal-first.md",
+      "lite-vs-standard.md",
+      "support-boundary.md"
+    ],
+    "howTo": [
+      "create-bootable-usb.md",
+      "verify-iso.md",
+      "install-on-uefi.md",
+      "install-on-bios-legacy.md",
+      "dual-boot.md",
+      "fix-bitlocker.md",
+      "fix-intel-rst.md",
+      "enable-third-party-drivers.md",
+      "install-codecs.md",
+      "reinstall-grub.md",
+      "recover-after-failed-boot.md",
+      "rollback-plan.md"
+    ],
+    "reference": [
+      "application-matrix.md",
+      "disk-layout-reference.md",
+      "glossary.md",
+      "hardware-requirements.md",
+      "installer-options.md",
+      "network-checklist.md",
+      "package-baseline.md",
+      "package-optional.md",
+      "post-install-checklist.md",
+      "troubleshooting-index.md"
+    ],
+    "tutorials": [
+      "00-index.md",
+      "01-introduction.md",
+      "02-install-preflight.md",
+      "03-install-core.md",
+      "04-install-gui.md",
+      "05-install-browser.md",
+      "06-install-editor.md",
+      "07-install-dev.md",
+      "08-install-media.md",
+      "09-cleanup.md",
+      "10-closeout.md"
+    ]
+  }
+}

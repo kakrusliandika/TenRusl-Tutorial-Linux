@@ -1,0 +1,29 @@
+{
+  "slug": "backup/vm",
+  "sections": {
+    "concepts": [
+      "snapshot-vs-backup.md",
+      "restore-planning.md",
+      "offsite-copy-strategy.md"
+    ],
+    "howTo": [
+      "create-vm-backup.md",
+      "restore-vm-backup.md",
+      "schedule-vm-backups.md",
+      "verify-vm-restore.md"
+    ],
+    "reference": [
+      "backup-layout.md",
+      "restore-checklist.md",
+      "retention-policy.md"
+    ],
+    "tutorials": [
+      "01-introduction.md",
+      "02-prepare-storage.md",
+      "03-create-backup.md",
+      "04-copy-offsite.md",
+      "05-restore-vm.md",
+      "06-verify-restore.md"
+    ]
+  }
+}

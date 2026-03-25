@@ -1,0 +1,54 @@
+# 💾 Konfigurasi Panel Cadangan
+
+## Tujuan
+Ambil konfigurasi CloudPanel dan konteks Linux di sekitarnya sehingga panel dapat dipulihkan dengan perutean dan ekspektasi layanan yang sama.
+
+## Kapan Menggunakan Prosedur Ini
+Gunakan ini selama jendela perubahan nyata pada host di mana panel dan akses SSH tetap tersedia.
+
+## Prasyarat
+- Akses SSH independen dari panel.
+- Nama host pementasan atau produksi jika tugas menyentuh perutean atau TLS.
+- Jalur pencadangan atau pengembalian sebelum perubahan dimulai.
+
+## Asumsi Lingkungan
+- Kata-kata UI mungkin berbeda berdasarkan rilis, namun verifikasi sisi host tetap stabil.
+- CloudPanel biasanya mengelola Nginx, PHP-FPM, dan layanan database dengan root situs di bawah `/home/*/htdocs` atau tata letak ramah cloud serupa. Nama layanan yang tepat dapat bervariasi berdasarkan versi.
+
+## Langkah Tepat
+### 1. Temukan konfigurasi dan lokasi konten yang relevan
+```bash
+sudo find /home /etc/nginx /etc/php -maxdepth 3 -type d \( -name htdocs -o -name sites-enabled -o -name php -o -name mysql \) 2>/dev/null | sort
+
+sudo find /etc/nginx /etc/php /home -maxdepth 4 -type f -mtime -2 2>/dev/null | sort | tail -n 40
+```
+
+### 2. Ambil inventaris layanan dan status pendengar sebelum pengarsipan
+```bash
+systemctl list-units --type=service | grep -Ei 'nginx|php.*fpm|mysql|mariadb|redis|cloudpanel|clp' || true
+
+ss -ltnp
+```
+
+### 3. Buat arsip panel dan status situs
+```bash
+sudo tar -czf /root/panel-backup-$(date +%F-%H%M).tgz /www /etc/nginx /etc/apache2 /etc/php /home 2>/dev/null || true
+sudo mysqldump --all-databases --single-transaction --quick --lock-tables=false > /root/panel-databases-$(date +%F-%H%M).sql 2>/dev/null || true
+```
+
+## ✅ Pos Pemeriksaan Validasi
+- Status tingkat shell sesuai dengan maksud panel.
+- Layanan, pendengar, dan log tetap dapat dimengerti setelah perubahan.
+
+## Pemecahan masalah
+- Bandingkan maksud panel dengan konfigurasi sebenarnya, pendengar, dan log sebelum membuat lebih banyak perubahan UI.
+- Pisahkan masalah DNS, layanan web, runtime, dan database alih-alih mengasumsikan satu akar permasalahan.
+
+## ↩️ Catatan Kembalikan / Pemulihan
+- Kembalikan konfigurasi terakhir yang diketahui baik atau hapus perubahan yang gagal sebelum berimprovisasi lebih jauh.
+- Simpan satu cadangan yang belum tersentuh sebelum jendela pemeliharaan saat ini.
+
+## Dokumen Terkait
+- [📋 Peta Layanan](../reference/service-map.md)
+- [📋 Tata Letak Direktori](../reference/directory-layout.md)
+- [🛡️ Keamanan](../../../../security/index.md)

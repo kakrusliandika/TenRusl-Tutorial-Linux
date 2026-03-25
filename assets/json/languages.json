@@ -1,0 +1,21 @@
+{
+    "default": "id",
+    "supported": [
+        {
+            "code": "en",
+            "label": "English",
+            "nativeLabel": "English",
+            "default": false,
+            "rootApp": true,
+            "pages": true
+        },
+        {
+            "code": "id",
+            "label": "Indonesian",
+            "nativeLabel": "Bahasa Indonesia",
+            "default": true,
+            "rootApp": true,
+            "pages": true
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+  "slug": "workstation/ubuntu/standard",
+  "sections": {
+    "concepts": [
+      "standard-overview.md",
+      "standard-vs-lite.md",
+      "when-to-choose-standard.md"
+    ],
+    "howTo": [
+      "enable-codecs.md",
+      "install-extra-apps.md",
+      "set-default-apps.md",
+      "upgrade-from-lite.md"
+    ],
+    "reference": [
+      "application-matrix.md",
+      "hardware-requirements.md",
+      "package-baseline.md",
+      "package-expanded.md"
+    ],
+    "tutorials": [
+      "01-introduction.md",
+      "02-install-preflight.md",
+      "03-install-core.md",
+      "04-default-apps.md",
+      "05-productivity.md",
+      "06-dev-tools.md",
+      "07-media-tools.md",
+      "08-optional-tools.md",
+      "09-cleanup.md",
+      "10-closeout.md"
+    ]
+  }
+}

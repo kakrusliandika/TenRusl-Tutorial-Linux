@@ -1,0 +1,34 @@
+{
+  "slug": "virtualization/idve",
+  "sections": {
+    "concepts": [
+      "idve-overview.md",
+      "network-design.md",
+      "storage-design.md"
+    ],
+    "howTo": [
+      "add-storage.md",
+      "configure-network.md",
+      "manage-templates.md",
+      "restore-backup.md"
+    ],
+    "reference": [
+      "backup-checklist.md",
+      "network-layout.md",
+      "operations-checklist.md",
+      "storage-layout.md"
+    ],
+    "tutorials": [
+      "01-introduction.md",
+      "02-prerequisites.md",
+      "03-install-core.md",
+      "04-networking.md",
+      "05-storage.md",
+      "06-images-or-templates.md",
+      "07-operations.md",
+      "08-backups.md",
+      "09-hardening.md",
+      "10-closeout.md"
+    ]
+  }
+}

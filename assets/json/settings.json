@@ -1,0 +1,66 @@
+{
+    "appName": "TenRusl Tutorial Linux",
+    "shortName": "TenRusl Linux",
+    "description": "Structured Linux tutorials and documentation for server, virtualization, security, backup, and workstation learning paths.",
+    "defaultMarkdownFile": "assets/content/index.md",
+    "repoUrl": "https://github.com/kakrusliandika/TenRusl-Tutorial-Linux",
+    "defaultTheme": "dark",
+    "defaultLanguage": "id",
+    "runtime": {
+        "appScript": "assets/js/app.js",
+        "serviceWorkerScript": "assets/js/sw.js",
+        "i18nRootEn": "assets/i18n/en.json",
+        "i18nRootId": "assets/i18n/id.json",
+        "i18nPages": "assets/i18n/pages.json"
+    },
+    "features": {
+        "mermaid": true,
+        "toc": true,
+        "tocSearch": false,
+        "fileOpen": false,
+        "copyRawMarkdown": true,
+        "copyCodeBlock": true,
+        "print": true,
+        "offline": true,
+        "serviceWorker": true,
+        "i18n": true,
+        "localProcessing": true,
+        "contentNavigation": true,
+        "breadcrumb": true,
+        "floatingToc": true
+    },
+    "branding": {
+        "title": "TenRusl Tutorial Linux",
+        "tagline": "Structured Linux tutorials for server, virtualization, security, backup, and workstation.",
+        "icon": "assets/images/icon.svg"
+    },
+    "paths": {
+        "root": "/",
+        "manifest": "manifest.webmanifest",
+        "offlinePage": "pages/offline.html",
+        "notFoundPage": "pages/404.html",
+        "privacyPage": "pages/privacy.html",
+        "termsPage": "pages/terms.html",
+        "cookiesPage": "pages/cookies.html",
+        "contactPage": "pages/contact.html",
+        "languagesConfig": "assets/json/languages.json",
+        "settingsConfig": "assets/json/settings.json",
+        "i18nRootEn": "assets/i18n/en.json",
+        "i18nRootId": "assets/i18n/id.json",
+        "i18nPages": "assets/i18n/pages.json",
+        "serviceWorker": "assets/js/sw.js"
+    },
+    "seo": {
+        "title": "TenRusl Tutorial Linux",
+        "description": "Structured Linux tutorials and documentation for server, virtualization, security, backup, and workstation learning paths.",
+        "robots": "index,follow",
+        "themeColorDark": "#0d1117",
+        "themeColorLight": "#f6f8fb"
+    },
+    "privacy": {
+        "contentProcessedLocallyByDefault": true,
+        "uploadsToServerByDefault": false,
+        "usesLocalStorageForPreferences": true,
+        "usesServiceWorkerCache": true
+    }
+}

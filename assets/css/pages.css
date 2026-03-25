@@ -1,0 +1,506 @@
+/* =====================================================================
+   TenRusl-Tutorial-Linux — pages.css
+   Khusus halaman statis: contact / privacy / terms / cookies / 404 / offline
+   Tidak mengurus header/footer viewer root
+   ===================================================================== */
+
+/* ---------------------------------------------------------------------
+   Scope halaman statis
+   --------------------------------------------------------------------- */
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .main,
+.page-main {
+    min-height: calc(100dvh - 140px);
+    padding-block: 24px;
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .container,
+.page-container {
+    width: min(100% - 32px, var(--container-lg));
+    margin-inline: auto;
+}
+
+@media (max-width: 768px) {
+    :is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .main,
+    .page-main {
+        padding-block: 16px;
+    }
+
+    :is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .container,
+    .page-container {
+        width: min(100% - 24px, var(--container-lg));
+    }
+}
+
+/* ---------------------------------------------------------------------
+   Core cards / grids / badges
+   --------------------------------------------------------------------- */
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .card,
+.page-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    padding: 20px;
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .card.tinted,
+.page-card.tinted {
+    background: color-mix(in srgb, var(--panel) 95%, var(--accent) 5%);
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .badge,
+.page-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 8px;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--border);
+    background: var(--surface-soft);
+    color: var(--muted);
+    font-size: 12px;
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .grid,
+.page-grid {
+    display: grid;
+    gap: 16px;
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .grid-2,
+.page-grid-2,
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .grid-3,
+.page-grid-3 {
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    :is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .grid-2,
+    .page-grid-2 {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    :is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .grid-3,
+    .page-grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ---------------------------------------------------------------------
+   Buttons
+   --------------------------------------------------------------------- */
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .btn,
+.page-btn {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 40px;
+    padding: 10px 14px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    background: var(--accent);
+    color: #ffffff;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.12s ease, filter 0.16s ease, border-color 0.16s ease, background 0.16s ease;
+    text-decoration: none;
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .btn:hover,
+.page-btn:hover {
+    filter: brightness(1.05);
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .btn:active,
+.page-btn:active {
+    transform: translateY(1px);
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .btn.ghost,
+.page-btn.ghost {
+    background: transparent;
+    border-color: var(--border);
+    color: var(--text);
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .btn.alt,
+.page-btn.alt {
+    background: var(--surface-soft);
+    border-color: var(--border);
+    color: var(--text);
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .btn-sm,
+.page-btn-sm {
+    min-height: 34px;
+    padding: 7px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .btn-block,
+.page-btn-block {
+    width: 100%;
+}
+
+/* ---------------------------------------------------------------------
+   Typography / prose / breadcrumbs
+   --------------------------------------------------------------------- */
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .prose,
+.page-prose {
+    color: var(--text);
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .prose h1,
+.page-prose h1 {
+    margin: 6px 0 14px;
+    font-size: clamp(28px, 2.8vw, 40px);
+    line-height: 1.2;
+    color: var(--heading);
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .prose h2,
+.page-prose h2 {
+    margin: 18px 0 10px;
+    font-size: clamp(20px, 2.2vw, 28px);
+    color: var(--heading);
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .prose h3,
+.page-prose h3 {
+    margin: 16px 0 10px;
+    font-size: 18px;
+    color: var(--heading);
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .prose p,
+.page-prose p {
+    margin: 10px 0;
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .prose a,
+.page-prose a {
+    color: var(--accent);
+    text-decoration: none;
+    text-underline-offset: 2px;
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .prose a:hover,
+.page-prose a:hover {
+    text-decoration: underline;
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .prose ul,
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .prose ol,
+.page-prose ul,
+.page-prose ol {
+    padding-left: 1.2rem;
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .breadcrumbs,
+.page-breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .breadcrumbs a,
+.page-breadcrumbs a {
+    color: inherit;
+    text-decoration: none;
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .breadcrumbs a:hover,
+.page-breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+/* ---------------------------------------------------------------------
+   Alerts / notices / empty states
+   --------------------------------------------------------------------- */
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .alert,
+.page-alert {
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--surface-soft) 84%, var(--accent) 16%);
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .alert.warn,
+.page-alert.warn {
+    border-left-color: var(--warning);
+    background: color-mix(in srgb, var(--surface-soft) 84%, var(--warning) 16%);
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .alert.danger,
+.page-alert.danger {
+    border-left-color: var(--danger);
+    background: color-mix(in srgb, var(--surface-soft) 84%, var(--danger) 16%);
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .empty-state,
+.page-empty-state {
+    display: grid;
+    gap: 12px;
+    place-items: center;
+    text-align: center;
+    min-height: 280px;
+    padding: 28px 18px;
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .hero-card,
+.page-hero-card {
+    padding: 24px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(31, 111, 235, 0.08), rgba(31, 111, 235, 0)), var(--panel);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ---------------------------------------------------------------------
+   Forms
+   --------------------------------------------------------------------- */
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .contact-form,
+.page-contact-form {
+    display: grid;
+    gap: 16px;
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .form-grid,
+.page-form-grid {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 700px) {
+    :is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .form-grid.two,
+    .page-form-grid.two {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .field,
+.page-field {
+    display: grid;
+    gap: 6px;
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .label,
+.page-label {
+    font-weight: 600;
+    color: var(--text);
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .input,
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .textarea,
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .select,
+.page-input,
+.page-textarea,
+.page-select {
+    width: 100%;
+    min-height: 42px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+    color: var(--text);
+    transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .textarea,
+.page-textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .input::placeholder,
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .textarea::placeholder,
+.page-input::placeholder,
+.page-textarea::placeholder {
+    color: color-mix(in srgb, var(--muted) 85%, transparent);
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .input:focus,
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .textarea:focus,
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .select:focus,
+.page-input:focus,
+.page-textarea:focus,
+.page-select:focus {
+    border-color: color-mix(in srgb, var(--accent) 70%, var(--border));
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 28%, transparent);
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .help,
+.page-help {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .form-actions,
+.page-form-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 420px) {
+    :is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .form-actions .btn,
+    .page-form-actions .page-btn,
+    .page-form-actions .btn {
+        flex: 1 1 auto;
+    }
+}
+
+/* ---------------------------------------------------------------------
+   Tables
+   --------------------------------------------------------------------- */
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .table-wrap,
+.page-table-wrap {
+    overflow: auto;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .table,
+.page-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .table th,
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .table td,
+.page-table th,
+.page-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .table thead th,
+.page-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: color-mix(in srgb, var(--panel) 94%, transparent);
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .table.striped tbody tr:nth-child(odd),
+.page-table.striped tbody tr:nth-child(odd) {
+    background: var(--surface-soft);
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .table.hover tbody tr:hover,
+.page-table.hover tbody tr:hover {
+    background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) th[data-sort],
+.page-table th[data-sort] {
+    cursor: pointer;
+    user-select: none;
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) th[data-sort]::after,
+.page-table th[data-sort]::after {
+    content: " ↕";
+    opacity: 0.55;
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) th[data-sort].asc::after,
+.page-table th[data-sort].asc::after {
+    content: " ↑";
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) th[data-sort].desc::after,
+.page-table th[data-sort].desc::after {
+    content: " ↓";
+}
+
+/* ---------------------------------------------------------------------
+   Static page code blocks
+   --------------------------------------------------------------------- */
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) pre,
+.page-code-block {
+    margin: 0;
+    padding: 14px;
+    overflow: auto;
+    position: relative;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface);
+    color: var(--text);
+    font-family: var(--font-mono);
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) code,
+.page-inline-code {
+    font-family: var(--font-mono);
+}
+
+:is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) pre .btn.copy,
+.page-code-block .btn.copy {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+/* ---------------------------------------------------------------------
+   Reveal helpers
+   --------------------------------------------------------------------- */
+
+.reveal {
+    opacity: 0;
+    translate: 0 6px;
+    transition: opacity 0.4s ease, translate 0.4s ease;
+}
+
+.reveal-in {
+    opacity: 1;
+    translate: 0 0;
+}
+
+/* ---------------------------------------------------------------------
+   Print
+   --------------------------------------------------------------------- */
+
+@media print {
+    :is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .card,
+    .page-card {
+        box-shadow: none;
+        border-color: #cccccc;
+    }
+
+    :is(body.page-shell, body[data-page-scope="pages"], body[data-shell="pages"]) .btn,
+    .page-btn {
+        display: none !important;
+    }
+}
+
+
+/* ---------------------------------------------------------------------
+   Lightweight page layout helpers
+   --------------------------------------------------------------------- */
+
+.page-stack > * + * {
+    margin-top: 16px;
+}
+
+.page-shell-offset {
+    margin-top: 12px;
+}

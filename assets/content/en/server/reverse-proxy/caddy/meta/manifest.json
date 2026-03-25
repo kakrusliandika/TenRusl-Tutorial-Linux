@@ -1,0 +1,33 @@
+{
+  "slug": "server/reverse-proxy/caddy",
+  "sections": {
+    "concepts": [
+      "caddy-overview.md",
+      "automatic-https.md",
+      "reverse-proxy-patterns.md"
+    ],
+    "howTo": [
+      "add-new-site.md",
+      "backup-config.md",
+      "enable-https.md",
+      "restore-config.md"
+    ],
+    "reference": [
+      "directory-layout.md",
+      "port-matrix.md",
+      "service-map.md"
+    ],
+    "tutorials": [
+      "01-introduction.md",
+      "02-prerequisites.md",
+      "03-install-base.md",
+      "04-install-caddy.md",
+      "05-add-sites.md",
+      "06-enable-tls.md",
+      "07-services.md",
+      "08-hardening.md",
+      "09-backup.md",
+      "10-closeout.md"
+    ]
+  }
+}

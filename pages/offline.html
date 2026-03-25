@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" data-page-scope="pages">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title data-i18n="offline.title">You are offline — TenRusl-Tutorial-Linux</title>
+        <meta name="description" content="Offline fallback page for TenRusl-Tutorial-Linux." />
+        <meta name="theme-color" content="#0d1117" />
+        <script src="../assets/js/bootstrap/theme-init.js"></script>
+
+        <link rel="stylesheet" href="../assets/plugin/fontawesome/css/all.min.css" />
+        <link rel="icon" href="../assets/images/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="../assets/images/icon.svg" />
+
+        <link rel="stylesheet" href="../assets/css/theme.css" />
+        <link rel="stylesheet" href="../assets/css/chrome.css" />
+        <link rel="stylesheet" href="../assets/css/header.css" />
+        <link rel="stylesheet" href="../assets/css/footer.css" />
+        <link rel="stylesheet" href="../assets/css/pages.css" />
+    </head>
+    <body data-page-scope="pages">
+        <a class="skip-link" href="#main">Skip to content</a>
+
+        <main id="main" class="main page-main">
+            <div class="container page-container">
+                <nav class="breadcrumbs page-breadcrumbs" aria-label="Breadcrumb">
+                    <a href="/" data-i18n="nav.home">Home</a>
+                    <span>/</span>
+                    <span data-i18n="offline.breadcrumb">Offline</span>
+                </nav>
+
+                <section class="card hero-card empty-state">
+                    <div class="badge">
+                        <i class="fa-solid fa-wifi" aria-hidden="true"></i>
+                        <span data-i18n="offline.breadcrumb">Offline</span>
+                    </div>
+
+                    <div class="page-prose prose">
+                        <h1 data-i18n="offline.heading">You are offline</h1>
+                        <p data-i18n="offline.lead">
+                            The page or resource you requested is not currently available without a connection.
+                        </p>
+                    </div>
+
+                    <div class="alert">
+                        TenRusl-Tutorial-Linux can still serve some cached assets and example files, but pages or
+                        resources that were not cached may remain unavailable until your connection returns.
+                    </div>
+
+                    <div class="form-actions page-form-actions">
+                        <button class="btn" type="button" data-action="retry" data-retry="true" data-i18n="offline.cta">
+                            Try again
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <script src="../assets/js/theme.js" defer></script>
+        <script src="../assets/js/language-pages.js" defer></script>
+        <script src="../assets/js/header-pages.js" defer></script>
+        <script src="../assets/js/footer-pages.js" defer></script>
+        <script src="../assets/js/pages.js" defer></script>
+    </body>
+</html>

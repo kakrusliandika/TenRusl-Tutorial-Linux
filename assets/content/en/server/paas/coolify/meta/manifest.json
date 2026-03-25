@@ -1,0 +1,33 @@
+{
+  "slug": "server/paas/coolify",
+  "sections": {
+    "concepts": [
+      "coolify-overview.md",
+      "self-hosted-paas.md",
+      "deployment-flow.md"
+    ],
+    "howTo": [
+      "add-new-project.md",
+      "backup-config.md",
+      "connect-git-provider.md",
+      "restore-config.md"
+    ],
+    "reference": [
+      "directory-layout.md",
+      "port-matrix.md",
+      "service-map.md"
+    ],
+    "tutorials": [
+      "01-introduction.md",
+      "02-prerequisites.md",
+      "03-install-base.md",
+      "04-install-coolify.md",
+      "05-add-services.md",
+      "06-configure-domains.md",
+      "07-configure-backups.md",
+      "08-admin-zone.md",
+      "09-hardening.md",
+      "10-closeout.md"
+    ]
+  }
+}

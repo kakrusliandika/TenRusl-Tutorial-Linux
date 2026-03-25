@@ -1,0 +1,1296 @@
+/* =====================================================================
+TenRusl Tutorial Linux — app.css
+Documentation shell for root viewer
+===================================================================== */
+
+html[data-app="tenrusl-tutorial-linux"] body {
+    min-width: 320px;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .layout {
+    display: grid;
+    grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
+    min-height: 100vh;
+    transition: grid-template-columns var(--motion-slow) var(--motion-ease);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .layout > .main {
+    min-width: 0;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .sidebar-backdrop {
+    display: none;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 18px 14px 18px;
+    border-right: 1px solid var(--border);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0)),
+        color-mix(in srgb, var(--panel-3) 96%, transparent);
+    backdrop-filter: blur(12px);
+    z-index: 30;
+    transition: transform var(--motion-slow) var(--motion-ease), opacity var(--motion-medium) var(--motion-ease),
+        border-color var(--motion-medium) var(--motion-ease), box-shadow var(--motion-medium) var(--motion-ease);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .layout.sidebar-collapsed {
+    grid-template-columns: 0 minmax(0, 1fr);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .layout.sidebar-collapsed .sidebar {
+    transform: translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
+    border-right-color: transparent;
+    box-shadow: none;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .viewer {
+    position: relative;
+    min-width: 0;
+    padding: 24px 24px 16px;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .paper {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    background: color-mix(in srgb, var(--panel) 98%, transparent);
+    box-shadow: var(--shadow-lg);
+    transition: border-color var(--motion-medium) var(--motion-ease),
+        box-shadow var(--motion-medium) var(--motion-ease),
+        background-color var(--motion-medium) var(--motion-ease);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .paper::before,
+html[data-app="tenrusl-tutorial-linux"] .paper::after {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .paper::before {
+    content: "";
+    top: 0;
+    left: 20px;
+    right: 20px;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        color-mix(in srgb, var(--accent) 30%, transparent) 16%,
+        color-mix(in srgb, var(--accent) 92%, transparent) 50%,
+        color-mix(in srgb, var(--accent) 30%, transparent) 84%,
+        transparent 100%
+    );
+    transform: scaleX(0.18);
+    transform-origin: 0 50%;
+    transition: opacity var(--motion-medium) var(--motion-ease);
+    z-index: 2;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .paper::after {
+    content: attr(data-loading-label);
+    top: 108px;
+    left: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    min-width: 156px;
+    max-width: calc(100% - 40px);
+    padding: 10px 16px;
+    border: 1px solid color-mix(in srgb, var(--accent) 18%, var(--border));
+    border-radius: var(--radius-pill);
+    background: color-mix(in srgb, var(--panel) 94%, transparent);
+    box-shadow: var(--shadow-md);
+    color: var(--heading);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    transform: translate(-50%, 14px);
+    transition: opacity var(--motion-medium) var(--motion-ease),
+        transform var(--motion-medium) var(--motion-ease);
+    z-index: 2;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .paper-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, rgba(31, 111, 235, 0.08), rgba(31, 111, 235, 0)),
+        color-mix(in srgb, var(--panel-3) 92%, transparent);
+    transition: opacity var(--motion-medium) var(--motion-ease),
+        transform var(--motion-medium) var(--motion-ease),
+        border-color var(--motion-medium) var(--motion-ease),
+        background-color var(--motion-medium) var(--motion-ease);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .paper-head-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    min-width: 0;
+    flex: 1 1 360px;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .paper-head {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    min-width: 0;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .paper-top h2 {
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    color: var(--heading);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .paper-top p {
+    margin: 0;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .paper-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding: 14px;
+    border: 1px solid color-mix(in srgb, var(--border) 82%, transparent);
+    border-radius: var(--radius-lg);
+    background: linear-gradient(180deg, rgba(88, 166, 255, 0.07), rgba(88, 166, 255, 0)), var(--panel);
+    box-shadow: var(--shadow-sm);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .brand-logo {
+    width: 46px;
+    height: 46px;
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    color: #ffffff;
+    font-size: 20px;
+    background: linear-gradient(135deg, var(--accent-strong), var(--accent));
+    box-shadow: 0 10px 22px rgba(31, 111, 235, 0.34);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .brand-copy {
+    min-width: 0;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .brand h1 {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.28;
+    color: var(--heading);
+    letter-spacing: 0.01em;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .brand p {
+    margin: 4px 0 0;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.35;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .control-grid {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 0;
+    margin-bottom: 0;
+}
+
+html[data-app="tenrusl-tutorial-linux"] :is(.sidebar, .brand, .topbar, .paper, .pill, .status, .search, .menu-branch, .menu-summary, .menu-link, .toc-drawer, .toc a) {
+    transition:
+        background-color var(--motion-fast) var(--motion-ease),
+        color var(--motion-fast) var(--motion-ease),
+        border-color var(--motion-fast) var(--motion-ease),
+        box-shadow var(--motion-fast) var(--motion-ease),
+        opacity var(--motion-fast) var(--motion-ease);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .layout :is(button, .btn-like) {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 40px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0)),
+        color-mix(in srgb, var(--panel) 94%, transparent);
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: border-color var(--motion-fast) var(--motion-ease), color var(--motion-fast) var(--motion-ease),
+        box-shadow var(--motion-fast) var(--motion-ease), background-color var(--motion-fast) var(--motion-ease);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .layout :is(button, .btn-like):hover {
+    border-color: var(--accent);
+    color: var(--heading);
+    box-shadow: 0 10px 24px rgba(31, 111, 235, 0.16);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .layout :is(button, .btn-like):disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .layout :is(button, .btn-like) i {
+    font-size: 13px;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-pill);
+    background: var(--panel);
+    color: var(--muted);
+    font-size: 12px;
+    white-space: nowrap;
+    box-shadow: var(--shadow-sm);
+    transition: opacity var(--motion-medium) var(--motion-ease),
+        transform var(--motion-medium) var(--motion-ease),
+        background-color var(--motion-medium) var(--motion-ease),
+        border-color var(--motion-medium) var(--motion-ease),
+        color var(--motion-medium) var(--motion-ease),
+        box-shadow var(--motion-medium) var(--motion-ease);
+}
+
+html[data-app="tenrusl-tutorial-linux"] #renderMeta {
+    align-self: flex-start;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .search-wrap {
+    position: relative;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .search {
+    width: 100%;
+    min-height: 44px;
+    padding: 11px 14px;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    background: var(--surface-2);
+    color: var(--text);
+    outline: none;
+    transition: border-color var(--motion-fast) var(--motion-ease),
+        box-shadow var(--motion-fast) var(--motion-ease);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .search:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-ring);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .content-menu {
+    flex: 1 1 auto;
+    min-height: 0;
+    border: 0;
+    border-radius: 0;
+    overflow: visible;
+    background: transparent;
+    box-shadow: none;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .menu-scroll {
+    height: 100%;
+    overflow: auto;
+    scroll-behavior: smooth;
+    padding: 2px 2px 12px 0;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .menu-empty {
+    display: grid;
+    gap: 6px;
+    padding: 18px 14px;
+    border: 1px dashed color-mix(in srgb, var(--border) 74%, transparent);
+    border-radius: 14px;
+    background: color-mix(in srgb, var(--panel) 78%, transparent);
+    color: var(--muted);
+    font-size: 13px;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .menu-empty strong {
+    color: var(--heading);
+    font-size: 13px;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .menu-branch {
+    margin: 4px 0;
+    border: 0;
+    border-radius: 16px;
+    background: transparent;
+    transition: background-color var(--motion-fast) var(--motion-ease),
+        box-shadow var(--motion-fast) var(--motion-ease);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .menu-branch[open] {
+    background: color-mix(in srgb, var(--panel-3) 46%, transparent);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .menu-summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 11px 12px;
+    cursor: pointer;
+    color: var(--heading);
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 14px;
+    transition: background-color var(--motion-fast) var(--motion-ease),
+        color var(--motion-fast) var(--motion-ease),
+        border-color var(--motion-fast) var(--motion-ease);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .menu-summary::-webkit-details-marker {
+    display: none;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .menu-summary:hover {
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent-soft) 68%, transparent);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .menu-summary:focus-visible {
+    background: color-mix(in srgb, var(--accent-soft) 72%, transparent);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .menu-summary-main {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    flex: 1 1 auto;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .menu-summary-caret,
+html[data-app="tenrusl-tutorial-linux"] .menu-summary-icon,
+html[data-app="tenrusl-tutorial-linux"] .menu-link-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 18px;
+    color: color-mix(in srgb, var(--muted) 88%, transparent);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .menu-summary-caret {
+    width: 16px;
+    transition: transform var(--motion-fast) var(--motion-ease), color var(--motion-fast) var(--motion-ease);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .menu-branch[open] > .menu-summary .menu-summary-caret {
+    transform: rotate(90deg);
+    color: var(--accent);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .menu-summary-label,
+html[data-app="tenrusl-tutorial-linux"] .menu-link-label {
+    min-width: 0;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow-wrap: anywhere;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .menu-summary-badge {
+    flex: 0 0 auto;
+    min-width: 26px;
+    padding: 4px 8px;
+    border: 1px solid color-mix(in srgb, var(--border) 76%, transparent);
+    border-radius: var(--radius-pill);
+    background: color-mix(in srgb, var(--panel) 82%, transparent);
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .menu-children {
+    height: 0;
+    padding: 0 6px 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: height var(--motion-slow) var(--motion-ease), opacity var(--motion-medium) var(--motion-ease),
+        padding-bottom var(--motion-medium) var(--motion-ease);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .menu-children-inner {
+    display: grid;
+    gap: 5px;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .menu-branch[open] > .menu-children {
+    height: auto;
+    padding-bottom: 8px;
+    opacity: 1;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .menu-link,
+html[data-app="tenrusl-tutorial-linux"] .menu-leaf {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin: 0;
+    padding: 10px 12px;
+    border: 0;
+    border-radius: 14px;
+    background: transparent;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.35;
+    text-align: left;
+    box-shadow: none;
+    transition: background-color var(--motion-fast) var(--motion-ease), color var(--motion-fast) var(--motion-ease),
+        box-shadow var(--motion-fast) var(--motion-ease);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .menu-link:hover,
+html[data-app="tenrusl-tutorial-linux"] .menu-leaf:hover,
+html[data-app="tenrusl-tutorial-linux"] .menu-link:focus-visible,
+html[data-app="tenrusl-tutorial-linux"] .menu-leaf:focus-visible {
+    background: color-mix(in srgb, var(--surface-soft) 86%, transparent);
+    color: var(--heading);
+    transform: none;
+    box-shadow: none;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .menu-link.is-active,
+html[data-app="tenrusl-tutorial-linux"] .menu-leaf.is-active {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent-soft) 94%, transparent), rgba(255, 255, 255, 0)),
+        color-mix(in srgb, var(--panel) 92%, transparent);
+    color: var(--heading);
+    transform: none;
+    box-shadow: inset 4px 0 0 color-mix(in srgb, var(--accent) 92%, transparent),
+        0 0 0 1px color-mix(in srgb, var(--accent) 26%, transparent), 0 12px 28px rgba(31, 111, 235, 0.12);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .menu-link[aria-current="page"],
+html[data-app="tenrusl-tutorial-linux"] .menu-leaf[aria-current="page"] {
+    color: var(--heading);
+    box-shadow: inset 4px 0 0 color-mix(in srgb, var(--accent) 92%, transparent),
+        0 0 0 1px color-mix(in srgb, var(--accent) 26%, transparent), 0 12px 28px rgba(31, 111, 235, 0.12);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .menu-link.is-current .menu-link-icon,
+html[data-app="tenrusl-tutorial-linux"] .menu-link.is-current .menu-link-label {
+    color: inherit;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .menu-link.depth-1,
+html[data-app="tenrusl-tutorial-linux"] .menu-leaf.depth-1 {
+    padding-left: 16px;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .menu-link.depth-2,
+html[data-app="tenrusl-tutorial-linux"] .menu-leaf.depth-2 {
+    padding-left: 28px;
+    font-size: 12.5px;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .menu-link.depth-3,
+html[data-app="tenrusl-tutorial-linux"] .menu-leaf.depth-3 {
+    padding-left: 40px;
+    font-size: 12px;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .menu-link.depth-4,
+html[data-app="tenrusl-tutorial-linux"] .menu-leaf.depth-4 {
+    padding-left: 52px;
+    font-size: 12px;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .menu-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 2px;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 600;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .menu-match-hidden {
+    display: none !important;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .breadcrumb {
+    display: block;
+    width: 100%;
+    min-height: 22px;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .breadcrumb-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .breadcrumb-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .breadcrumb-item:not(:last-child)::after {
+    content: "/";
+    color: color-mix(in srgb, var(--muted) 78%, transparent);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .breadcrumb-link,
+html[data-app="tenrusl-tutorial-linux"] .breadcrumb-current {
+    max-width: 100%;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .breadcrumb-link {
+    color: inherit;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .breadcrumb-link:hover {
+    color: var(--heading);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .breadcrumb-current {
+    color: var(--heading);
+    font-weight: 700;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .toc-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(4, 9, 17, 0.42);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--motion-medium) var(--motion-ease);
+    z-index: 31;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .layout.toc-open .toc-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .toc-drawer-toggle {
+    position: fixed;
+    right: 18px;
+    top: 50%;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-width: 46px;
+    min-height: 132px;
+    padding: 12px 8px;
+    border-radius: 18px;
+    transform: translateY(-50%);
+    z-index: 34;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .toc-drawer-toggle span {
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    letter-spacing: 0.04em;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .layout.toc-open .toc-drawer-toggle {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+    box-shadow: 0 0 0 2px var(--accent-ring) inset, var(--shadow-sm);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .toc-drawer {
+    position: fixed;
+    right: 24px;
+    top: calc(var(--topbar-h) + 74px);
+    width: min(360px, calc(100vw - 36px));
+    max-height: calc(100vh - 112px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: color-mix(in srgb, var(--panel) 96%, transparent);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.32);
+    z-index: 35;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-6px) scale(0.985);
+    transition: opacity var(--motion-medium) var(--motion-ease),
+        transform var(--motion-medium) var(--motion-ease),
+        visibility var(--motion-medium) var(--motion-ease);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .layout.toc-open .toc-drawer {
+    right: 88px;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .toc-drawer.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .toc-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
+    color: var(--heading);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .toc-head span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .toc-head-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .toc-close {
+    min-width: 32px;
+    min-height: 32px;
+    padding: 0;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .toc {
+    padding: 8px;
+    max-height: calc(100vh - 190px);
+    overflow: auto;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .toc a {
+    display: block;
+    margin: 2px 0;
+    padding: 8px 10px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.35;
+    transition: background-color var(--motion-fast) var(--motion-ease),
+        border-color var(--motion-fast) var(--motion-ease),
+        transform var(--motion-fast) var(--motion-ease),
+        color var(--motion-fast) var(--motion-ease);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .toc a:hover,
+html[data-app="tenrusl-tutorial-linux"] .toc a.active {
+    background: var(--accent-soft);
+    border-color: rgba(88, 166, 255, 0.22);
+    color: var(--heading);
+    transform: translateX(1px);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .toc a.lv2 {
+    padding-left: 22px;
+    font-size: 12.5px;
+    color: color-mix(in srgb, var(--text) 88%, transparent);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .toc a.lv3 {
+    padding-left: 34px;
+    font-size: 12px;
+    color: color-mix(in srgb, var(--text) 72%, transparent);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .toc a.hidden {
+    display: none;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 32;
+    min-height: var(--topbar-h);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 22px;
+    border-bottom: 1px solid var(--border);
+    background: color-mix(in srgb, var(--panel-3) 96%, transparent);
+    backdrop-filter: blur(12px);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .topbar-left,
+html[data-app="tenrusl-tutorial-linux"] .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    min-width: 0;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .topbar-right {
+    margin-left: auto;
+    justify-content: flex-end;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .mobile-toggle {
+    display: inline-flex;
+}
+
+html[data-app="tenrusl-tutorial-linux"] #themeToggle {
+    position: relative;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .markdown-body {
+    max-width: 100%;
+    margin: 0;
+    padding: 32px 42px 56px;
+    background: transparent;
+    color: var(--text);
+    transition: opacity var(--motion-medium) var(--motion-ease),
+        transform var(--motion-medium) var(--motion-ease),
+        filter var(--motion-medium) var(--motion-ease);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .markdown-body h1,
+html[data-app="tenrusl-tutorial-linux"] .markdown-body h2,
+html[data-app="tenrusl-tutorial-linux"] .markdown-body h3,
+html[data-app="tenrusl-tutorial-linux"] .markdown-body h4,
+html[data-app="tenrusl-tutorial-linux"] .markdown-body h5,
+html[data-app="tenrusl-tutorial-linux"] .markdown-body h6 {
+    color: var(--heading);
+    scroll-margin-top: 88px;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .markdown-body p,
+html[data-app="tenrusl-tutorial-linux"] .markdown-body li,
+html[data-app="tenrusl-tutorial-linux"] .markdown-body td,
+html[data-app="tenrusl-tutorial-linux"] .markdown-body th {
+    color: var(--text);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .markdown-body img {
+    border-radius: 10px;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .markdown-body hr {
+    border-color: var(--border);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .markdown-body table {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    border-collapse: collapse;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .markdown-body table th,
+html[data-app="tenrusl-tutorial-linux"] .markdown-body table td {
+    border-color: var(--border);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .markdown-body pre {
+    position: relative;
+    margin: 16px 0;
+    padding-top: 42px;
+    border: 1px solid var(--code-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--code-bg);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .markdown-body pre code,
+html[data-app="tenrusl-tutorial-linux"] .markdown-body pre code.hljs {
+    display: block;
+    overflow: auto;
+    padding: 0 16px 16px;
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--code-fg);
+    background: transparent !important;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .markdown-body code:not(pre code) {
+    color: var(--code-inline-text);
+    background: var(--code-inline-bg);
+    border: 1px solid var(--code-inline-border);
+    border-radius: 6px;
+    padding: 0.14em 0.38em;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .markdown-body a[data-md-link="true"] {
+    color: var(--accent);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .markdown-body blockquote {
+    border-left-color: var(--accent);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .code-toolbar {
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px 0 12px;
+    border-bottom: 1px solid var(--code-toolbar-border);
+    background: var(--code-toolbar-bg);
+    color: var(--code-toolbar-text);
+    font-size: 12px;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .code-lang {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--code-toolbar-text);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .copy-btn {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 30px;
+    padding: 5px 9px;
+    border: 1px solid var(--code-button-border);
+    border-radius: 8px;
+    background: var(--code-button-bg);
+    color: var(--code-button-text);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .copy-btn:hover {
+    border-color: var(--accent);
+    color: var(--heading);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .copy-btn.done {
+    border-color: var(--success);
+    background: var(--success-soft);
+    color: var(--heading);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .callout {
+    margin: 16px 0;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 12px;
+    background: var(--accent-soft);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .callout.warn {
+    border-left-color: var(--warning);
+    background: var(--warning-soft);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .callout.danger {
+    border-left-color: var(--danger);
+    background: var(--danger-soft);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .callout > :first-child {
+    margin-top: 0;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .callout > :last-child {
+    margin-bottom: 0;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .mermaid-wrap {
+    margin: 16px 0;
+    padding: 18px;
+    overflow: auto;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--surface-2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border-top: 1px solid var(--border);
+    background: color-mix(in srgb, var(--panel-3) 92%, transparent);
+    color: var(--muted);
+    font-size: 13px;
+    transition: opacity var(--motion-medium) var(--motion-ease),
+        transform var(--motion-medium) var(--motion-ease),
+        border-color var(--motion-medium) var(--motion-ease),
+        background-color var(--motion-medium) var(--motion-ease),
+        color var(--motion-medium) var(--motion-ease);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .paper.is-loading::before {
+    opacity: 1;
+    animation: tr-paper-loading-rail 1s var(--motion-ease) infinite;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .paper.is-loading::after {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .paper.is-loading .paper-top,
+html[data-app="tenrusl-tutorial-linux"] .paper.is-loading .status {
+    opacity: 0.88;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .paper.is-loading .markdown-body,
+html[data-app="tenrusl-tutorial-linux"] .paper.is-loading .status {
+    transform: translateY(10px);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .paper.is-loading .markdown-body {
+    opacity: 0.2;
+    filter: saturate(0.88);
+}
+
+html[data-app="tenrusl-tutorial-linux"] .paper.is-revealing .markdown-body,
+html[data-app="tenrusl-tutorial-linux"] .paper.is-revealing .status {
+    animation: tr-paper-content-reveal var(--motion-medium) var(--motion-ease) both;
+}
+
+@keyframes tr-paper-loading-rail {
+    0% {
+        transform: translateX(-32%) scaleX(0.18);
+        opacity: 0.35;
+    }
+    50% {
+        transform: translateX(0) scaleX(0.92);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(32%) scaleX(0.22);
+        opacity: 0.4;
+    }
+}
+
+@keyframes tr-paper-content-reveal {
+    0% {
+        opacity: 0;
+        transform: translateY(16px);
+        filter: saturate(0.92);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: saturate(1);
+    }
+}
+
+html[data-app="tenrusl-tutorial-linux"] .anchor-link {
+    opacity: 0;
+    margin-left: 8px;
+    font-size: 0.9em;
+    color: var(--muted);
+    text-decoration: none;
+    transition: opacity 0.16s ease, color 0.16s ease;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .markdown-body h1:hover .anchor-link,
+html[data-app="tenrusl-tutorial-linux"] .markdown-body h2:hover .anchor-link,
+html[data-app="tenrusl-tutorial-linux"] .markdown-body h3:hover .anchor-link {
+    opacity: 1;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .anchor-link:hover {
+    color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html[data-app="tenrusl-tutorial-linux"] .menu-scroll {
+        scroll-behavior: auto;
+    }
+
+    html[data-app="tenrusl-tutorial-linux"] .paper.is-loading::before,
+    html[data-app="tenrusl-tutorial-linux"] .paper.is-revealing .markdown-body,
+    html[data-app="tenrusl-tutorial-linux"] .paper.is-revealing .status {
+        animation: none;
+    }
+}
+
+@media (max-width: 1080px) {
+    html[data-app="tenrusl-tutorial-linux"] body {
+    min-width: 320px;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .layout {
+        grid-template-columns: 1fr;
+    }
+
+    html[data-app="tenrusl-tutorial-linux"] .sidebar-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(13, 17, 23, 0.48);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity var(--motion-medium) var(--motion-ease);
+        z-index: 37;
+    }
+
+    html[data-app="tenrusl-tutorial-linux"] .layout.sidebar-open .sidebar-backdrop {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    html[data-app="tenrusl-tutorial-linux"] .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 340px;
+        max-width: calc(100vw - 24px);
+        padding-top: calc(env(safe-area-inset-top, 0px) + 12px);
+        transform: translateX(-105%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform var(--motion-slow) var(--motion-ease), opacity var(--motion-medium) var(--motion-ease),
+            visibility var(--motion-medium) var(--motion-ease);
+        z-index: 40;
+    }
+
+    html[data-app="tenrusl-tutorial-linux"] .layout.sidebar-open .sidebar {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+        box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+    }
+
+    html[data-app="tenrusl-tutorial-linux"] .viewer {
+        padding: 14px 14px 10px;
+    }
+
+    html[data-app="tenrusl-tutorial-linux"] .topbar {
+        padding-inline: 14px;
+    }
+
+    html[data-app="tenrusl-tutorial-linux"] .markdown-body {
+        padding: 24px 18px 42px;
+    }
+
+    html[data-app="tenrusl-tutorial-linux"] .toc-drawer-toggle {
+        right: 10px;
+        min-height: 116px;
+        padding: 10px 7px;
+    }
+
+    html[data-app="tenrusl-tutorial-linux"] .toc-drawer {
+        right: 14px;
+        top: calc(var(--topbar-h) + 64px);
+        width: min(340px, calc(100vw - 28px));
+        max-height: calc(100vh - 96px);
+    }
+
+    html[data-app="tenrusl-tutorial-linux"] .layout.toc-open .toc-drawer {
+        right: 72px;
+        width: min(320px, calc(100vw - 92px));
+    }
+}
+
+@media (max-width: 560px) {
+    html[data-app="tenrusl-tutorial-linux"] .paper-actions {
+        width: 100%;
+    }
+
+    html[data-app="tenrusl-tutorial-linux"] .paper-actions > button {
+        flex: 1 1 auto;
+    }
+
+    html[data-app="tenrusl-tutorial-linux"] .brand {
+        align-items: flex-start;
+    }
+
+    html[data-app="tenrusl-tutorial-linux"] .toc-drawer {
+        width: calc(100vw - 24px);
+        right: 12px;
+    }
+
+    html[data-app="tenrusl-tutorial-linux"] .layout.toc-open .toc-drawer {
+        width: calc(100vw - 88px);
+        right: 64px;
+    }
+}
+
+@media print {
+    @page {
+        size: auto;
+        margin: 12mm;
+    }
+
+    html[data-app="tenrusl-tutorial-linux"] .sidebar,
+    html[data-app="tenrusl-tutorial-linux"] .topbar,
+    html[data-app="tenrusl-tutorial-linux"] .paper-top,
+    html[data-app="tenrusl-tutorial-linux"] .status,
+    html[data-app="tenrusl-tutorial-linux"] .code-toolbar,
+    html[data-app="tenrusl-tutorial-linux"] .copy-btn,
+    html[data-app="tenrusl-tutorial-linux"] .anchor-link,
+    html[data-app="tenrusl-tutorial-linux"] .toc-backdrop,
+    html[data-app="tenrusl-tutorial-linux"] .toc-drawer,
+    html[data-app="tenrusl-tutorial-linux"] .toc-drawer-toggle {
+        display: none !important;
+    }
+
+    html[data-app="tenrusl-tutorial-linux"] body {
+    min-width: 320px;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .layout {
+        display: block !important;
+        min-height: auto !important;
+    }
+
+    html[data-app="tenrusl-tutorial-linux"] body,
+    html[data-app="tenrusl-tutorial-linux"] .paper,
+    html[data-app="tenrusl-tutorial-linux"] .markdown-body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        box-shadow: none !important;
+    }
+
+    html[data-app="tenrusl-tutorial-linux"] .viewer {
+        padding: 0 !important;
+    }
+
+    html[data-app="tenrusl-tutorial-linux"] .paper {
+        max-width: none !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+    }
+
+    html[data-app="tenrusl-tutorial-linux"] .markdown-body {
+        padding: 0 !important;
+        font-size: 11pt;
+        line-height: 1.55;
+    }
+
+    html[data-app="tenrusl-tutorial-linux"] .markdown-body,
+    html[data-app="tenrusl-tutorial-linux"] .markdown-body p,
+    html[data-app="tenrusl-tutorial-linux"] .markdown-body li,
+    html[data-app="tenrusl-tutorial-linux"] .markdown-body td,
+    html[data-app="tenrusl-tutorial-linux"] .markdown-body th,
+    html[data-app="tenrusl-tutorial-linux"] .markdown-body blockquote,
+    html[data-app="tenrusl-tutorial-linux"] .markdown-body code {
+        color: #000000 !important;
+    }
+
+    html[data-app="tenrusl-tutorial-linux"] .markdown-body h1,
+    html[data-app="tenrusl-tutorial-linux"] .markdown-body h2,
+    html[data-app="tenrusl-tutorial-linux"] .markdown-body h3,
+    html[data-app="tenrusl-tutorial-linux"] .markdown-body h4,
+    html[data-app="tenrusl-tutorial-linux"] .markdown-body h5,
+    html[data-app="tenrusl-tutorial-linux"] .markdown-body h6 {
+        color: #000000 !important;
+    }
+
+    html[data-app="tenrusl-tutorial-linux"] .markdown-body a,
+    html[data-app="tenrusl-tutorial-linux"] .markdown-body a:visited {
+        color: #000000 !important;
+        text-decoration: underline !important;
+    }
+
+    html[data-app="tenrusl-tutorial-linux"] .markdown-body pre {
+        padding-top: 16px !important;
+        border-color: #d0d7de !important;
+        background: #f6f8fa !important;
+        break-inside: avoid;
+    }
+
+    html[data-app="tenrusl-tutorial-linux"] .markdown-body table,
+    html[data-app="tenrusl-tutorial-linux"] .markdown-body img,
+    html[data-app="tenrusl-tutorial-linux"] .callout,
+    html[data-app="tenrusl-tutorial-linux"] .mermaid-wrap,
+    html[data-app="tenrusl-tutorial-linux"] blockquote {
+        break-inside: avoid;
+    }
+}
+
+
+html[data-app="tenrusl-tutorial-linux"] .viewer-shell {
+    min-width: 0;
+}
+
+html[data-app="tenrusl-tutorial-linux"] .paper > :last-child {
+    margin-bottom: 0;
+}

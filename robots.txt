@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tenrusl-tutorial-linux.pages.dev/sitemap.xml

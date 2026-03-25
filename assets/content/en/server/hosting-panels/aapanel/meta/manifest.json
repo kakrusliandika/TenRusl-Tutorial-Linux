@@ -1,0 +1,33 @@
+{
+  "slug": "server/hosting-panels/aapanel",
+  "sections": {
+    "concepts": [
+      "aapanel-overview.md",
+      "panel-based-hosting.md",
+      "admin-zone-design.md"
+    ],
+    "howTo": [
+      "add-new-site.md",
+      "backup-config.md",
+      "restore-config.md",
+      "set-up-ssl.md"
+    ],
+    "reference": [
+      "directory-layout.md",
+      "port-matrix.md",
+      "service-map.md"
+    ],
+    "tutorials": [
+      "01-introduction.md",
+      "02-prerequisites.md",
+      "03-install-base.md",
+      "04-install-panel.md",
+      "05-add-sites.md",
+      "06-database-setup.md",
+      "07-runtime-setup.md",
+      "08-admin-zone.md",
+      "09-hardening.md",
+      "10-closeout.md"
+    ]
+  }
+}

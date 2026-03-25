@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" data-page-scope="pages">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title data-i18n="contact.title">Contact — TenRusl-Tutorial-Linux</title>
+        <meta name="description" content="Contact page for TenRusl-Tutorial-Linux." />
+        <meta name="theme-color" content="#0d1117" />
+        <script src="../assets/js/bootstrap/theme-init.js"></script>
+        <link rel="canonical" href="https://tenrusl-tutorial-linux.pages.dev/pages/contact.html" />
+
+        <link rel="stylesheet" href="../assets/plugin/fontawesome/css/all.min.css" />
+        <link rel="icon" href="../assets/images/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="../assets/images/icon.svg" />
+
+        <link rel="stylesheet" href="../assets/css/theme.css" />
+        <link rel="stylesheet" href="../assets/css/chrome.css" />
+        <link rel="stylesheet" href="../assets/css/header.css" />
+        <link rel="stylesheet" href="../assets/css/footer.css" />
+        <link rel="stylesheet" href="../assets/css/pages.css" />
+    </head>
+    <body data-page-scope="pages">
+        <a class="skip-link" href="#main">Skip to content</a>
+
+        <main id="main" class="main page-main">
+            <div class="container page-container">
+                <nav class="breadcrumbs page-breadcrumbs" aria-label="Breadcrumb">
+                    <a href="/" data-i18n="nav.home">Home</a>
+                    <span>/</span>
+                    <span data-i18n="nav.contact">Contact</span>
+                </nav>
+
+                <section class="card">
+                    <div class="page-prose prose mb-4">
+                        <h1 data-i18n="contact.heading">Contact</h1>
+                        <p data-i18n="contact.description">We’d love to hear from you.</p>
+                    </div>
+
+                    <div class="grid grid-2 page-grid-2">
+                        <form
+                            class="card contact-form page-contact-form"
+                            action="mailto:contact@tenrusl.com"
+                            method="post"
+                            enctype="text/plain"
+                            novalidate
+                        >
+                            <div class="form-grid two page-form-grid two">
+                                <div class="field page-field">
+                                    <label class="label page-label" for="name" data-i18n="contact.form.nameLabel"
+                                        >Name</label
+                                    >
+                                    <input
+                                        id="name"
+                                        name="name"
+                                        class="input page-input"
+                                        autocomplete="name"
+                                        required
+                                        data-i18n-attrs="placeholder"
+                                        data-i18n-placeholder="contact.form.namePlaceholder"
+                                        placeholder="Your name"
+                                    />
+                                </div>
+
+                                <div class="field page-field">
+                                    <label class="label page-label" for="email" data-i18n="contact.form.emailLabel"
+                                        >Email</label
+                                    >
+                                    <input
+                                        id="email"
+                                        name="email"
+                                        type="email"
+                                        inputmode="email"
+                                        class="input page-input"
+                                        autocomplete="email"
+                                        required
+                                        data-i18n-attrs="placeholder"
+                                        data-i18n-placeholder="contact.form.emailPlaceholder"
+                                        placeholder="you@example.com"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="field page-field">
+                                <label class="label page-label" for="msg" data-i18n="contact.form.messageLabel"
+                                    >Message</label
+                                >
+                                <textarea
+                                    id="msg"
+                                    name="message"
+                                    class="textarea page-textarea"
+                                    rows="6"
+                                    required
+                                    aria-describedby="contactHelp"
+                                    data-i18n-attrs="placeholder"
+                                    data-i18n-placeholder="contact.form.messagePlaceholder"
+                                    placeholder="How can we help?"
+                                ></textarea>
+                                <div id="contactHelp" class="help page-help" data-i18n="contact.form.help">
+                                    Sending uses your email app (mailto). This site does not submit your message to a
+                                    server by default.
+                                </div>
+                            </div>
+
+                            <div class="form-actions page-form-actions">
+                                <button class="btn page-btn" type="submit" data-i18n="contact.form.submit">Send</button>
+                                <a
+                                    class="btn alt page-btn alt"
+                                    href="mailto:contact@tenrusl.com"
+                                    data-i18n="contact.form.openMail"
+                                >
+                                    Open mail app
+                                </a>
+                            </div>
+                        </form>
+
+                        <aside class="card tinted">
+                            <h3 data-i18n="contact.direct.title">Direct</h3>
+                            <p>
+                                <span data-i18n="contact.direct.emailLabel">Email</span>:
+                                <a href="mailto:contact@tenrusl.com">contact@tenrusl.com</a>
+                            </p>
+
+                            <button
+                                class="btn mt-2"
+                                type="button"
+                                data-action="copy-email"
+                                data-copy-email="contact@tenrusl.com"
+                                data-i18n="contact.direct.copyBtn"
+                            >
+                                Copy email
+                            </button>
+
+                            <div class="alert mt-2" data-i18n="contact.direct.hours">
+                                Support hours: 09:00–18:00 (Asia/Jakarta), Mon–Fri.
+                            </div>
+                        </aside>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <script src="../assets/js/theme.js" defer></script>
+        <script src="../assets/js/language-pages.js" defer></script>
+        <script src="../assets/js/header-pages.js" defer></script>
+        <script src="../assets/js/footer-pages.js" defer></script>
+        <script src="../assets/js/pages.js" defer></script>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "slug": "backup/web",
+  "sections": {
+    "concepts": [
+      "application-consistency.md",
+      "database-dump-strategy.md",
+      "restore-rehearsal.md"
+    ],
+    "howTo": [
+      "backup-web-root.md",
+      "backup-database.md",
+      "restore-web-app.md",
+      "test-web-restore.md"
+    ],
+    "reference": [
+      "backup-layout.md",
+      "restore-checklist.md",
+      "retention-policy.md"
+    ],
+    "tutorials": [
+      "01-introduction.md",
+      "02-identify-app-parts.md",
+      "03-backup-files.md",
+      "04-backup-database.md",
+      "05-restore-stack.md",
+      "06-verify-application.md"
+    ]
+  }
+}

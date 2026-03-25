@@ -1,0 +1,34 @@
+{
+  "slug": "security/server",
+  "sections": {
+    "concepts": [
+      "hardening-baseline.md",
+      "ssh-policy.md",
+      "least-privilege.md"
+    ],
+    "howTo": [
+      "disable-password-login.md",
+      "configure-audit-logging.md",
+      "review-open-ports.md",
+      "set-up-fail2ban.md"
+    ],
+    "reference": [
+      "firewall-checklist.md",
+      "incident-checklist.md",
+      "logging-checklist.md",
+      "ssh-checklist.md"
+    ],
+    "tutorials": [
+      "01-introduction.md",
+      "02-baseline-audit.md",
+      "03-users-and-ssh.md",
+      "04-firewall.md",
+      "05-updates.md",
+      "06-service-hardening.md",
+      "07-file-permissions.md",
+      "08-logging.md",
+      "09-hardening.md",
+      "10-closeout.md"
+    ]
+  }
+}

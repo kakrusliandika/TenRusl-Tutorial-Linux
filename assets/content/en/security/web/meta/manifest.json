@@ -1,0 +1,34 @@
+{
+  "slug": "security/web",
+  "sections": {
+    "concepts": [
+      "web-hardening-baseline.md",
+      "security-headers-first.md",
+      "tls-surface-reduction.md"
+    ],
+    "howTo": [
+      "configure-csp.md",
+      "enable-hsts.md",
+      "review-security-headers.md",
+      "set-up-rate-limiting.md"
+    ],
+    "reference": [
+      "header-matrix.md",
+      "incident-checklist.md",
+      "logging-checklist.md",
+      "tls-checklist.md"
+    ],
+    "tutorials": [
+      "01-introduction.md",
+      "02-surface-mapping.md",
+      "03-tls-baseline.md",
+      "04-security-headers.md",
+      "05-rate-limiting.md",
+      "06-waf-baseline.md",
+      "07-logging.md",
+      "08-monitoring.md",
+      "09-hardening.md",
+      "10-closeout.md"
+    ]
+  }
+}
